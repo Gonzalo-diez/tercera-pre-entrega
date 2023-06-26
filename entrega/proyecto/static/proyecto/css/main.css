@@ -1,0 +1,9 @@
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+}
+  
+.navbar-nav .nav-item {
+    margin-right: 100px; /* Ajusta este valor según sea necesario */
+}
+

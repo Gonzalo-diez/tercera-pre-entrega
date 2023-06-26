@@ -1,0 +1,51 @@
+{% extends 'proyecto/inicio.html' %}
+
+{% block content %} 
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h3>{{ consola.titulo }}</h3>
+              </div>
+              <div class="card-body">
+                {% if consola.imagenProducto %}
+                  <img src="{{ consola.imagenProducto.url }}" alt="Imagen del producto" class="img-fluid">
+                {% endif %}
+                <h5>Marca: {{ consola.marca }}</h5>
+                <h5>Modelo: {{ consola.modelo }}</h5>
+                <p>Descripción: {{ consola.descripcion }}</p>
+                <p>Año: {{ consola.year }}</p>
+                <p>Precio: ${{ consola.precio }}</p>
+                <p>Fecha de publicación: {{ consola.fechaPublicacion }}</p>
+                <p>Contacto: {{ consola.telefonoContacto }}, {{ consola.emailContacto }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-4">
+      <h4>Comentarios</h4>
+      {% if consola.comentarios.count > 0 %}
+        <ul class="list-group">
+          {% for comentario in consola.comentarios.all %}
+            <li class="list-group-item">
+              <h5>{{ comentario.nombre }}</h5>
+              <p>{{ comentario.mensaje }}</p>
+              <p>Fecha de comentario: {{ comentario.fechaComentario }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se ha comentado sobre este producto.</p>
+      {% endif %}
+      <a href="{% url 'comentario' consola.pk %}">Agregar un comentario</a>
+    </div>
+</section>
+
+{% endblock content %}

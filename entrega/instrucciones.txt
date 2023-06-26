@@ -1,0 +1,16 @@
+En este proyecto se puede subir publicaciones y buscar tales publicaciones dependiendo si son consolas, celulares y/o computadoras.
+
+La cuenta para realizar el login y admin:
+
+Nombre de usuario: usuario
+Contraseña: Admin2001
+
+Los modelos que se usan en este proyecto son usuario, publicación y comentarios.
+
+-Usuario: este modelo es utilizado para realizar login y registros.
+
+-Publicacion: este modelo es utilizado para subir publicaciones (consolas, celulares y/o computadoras) y se muestran en las urls correspondientes.
+
+-Comentarios: este modelo es utilizado para comentar en las publicaciones subidas.
+
+Los formularios utilizados para registrar usuarios, subir publicaciones y para poder comentar las publicaciones.

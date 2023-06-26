@@ -1,0 +1,29 @@
+{% extends 'proyecto/inicio.html' %}
+
+{% block content %}
+
+<section>
+  <h2>Editar Publicación</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+      <label for="{{ form.titulo.id_for_label }}">Título:</label>
+      {{ form.titulo }}
+    </div>
+    <div>
+      <label for="{{ form.imagenProducto.id_for_label }}">Imagen:</label>
+      {{ form.imagenProducto }}
+    </div>
+    <div>
+      <label for="{{ form.producto.id_for_label }}">Producto:</label>
+      {{ form.producto }}
+    </div>
+    <div>
+      <label for="{{ form.precio.id_for_label }}">Precio:</label>
+      {{ form.precio }}
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </form>
+</section>
+
+{% endblock content %}

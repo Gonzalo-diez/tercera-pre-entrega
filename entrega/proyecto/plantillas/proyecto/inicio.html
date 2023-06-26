@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'proyecto/css/main.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>MercadoTrucho</title>
+</head>
+<body class="container-fluid d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'Inicio' %}">MercadoTrucho</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'Inicio' %}">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Consola' %}">Consola</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Celular' %}">Celular</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Computadora' %}">Computadora</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Login' %}"><box-icon name='user'></box-icon></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+
+    <div class="container text-center container flex-grow-1 py-4 d-flex justify-content-center">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <h1>Bienvenido a MercadoTrucho</h1>
+            <p class="lead">La mejor plataforma para comprar y vender productos de manera segura y confiable.</p>
+            <button type="button" class="btn btn-primary"><a href="{% url 'AgregarPublicacion'%}" class="link-dark link-offset-2 link-underline link-underline-opacity-0">Agregar publicación</a></button>
+          </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+      
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+          <span class="text-muted">© 2023 MercadoTrucho. Todos los derechos reservados.</span>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

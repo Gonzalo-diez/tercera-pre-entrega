@@ -1,0 +1,51 @@
+{% extends 'proyecto/inicio.html' %}
+
+{% block content %} 
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h3>{{ computadora.titulo }}</h3>
+              </div>
+              <div class="card-body">
+                {% if computadora.imagenProducto %}
+                  <img src="{{ computadora.imagenProducto.url }}" alt="Imagen del producto" class="img-fluid">
+                {% endif %}
+                <h5>Marca: {{ computadora.marca }}</h5>
+                <h5>Modelo: {{ computadora.modelo }}</h5>
+                <p>Descripción: {{ computadora.descripcion }}</p>
+                <p>Año: {{ computadora.year }}</p>
+                <p>Precio: ${{ computadora.precio }}</p>
+                <p>Fecha de publicación: {{ computadora.fechaPublicacion }}</p>
+                <p>Contacto: {{ computadora.telefonoContacto }}, {{ computadora.emailContacto }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-4">
+      <h4>Comentarios</h4>
+      {% if computadora.comentarios.count > 0 %}
+        <ul class="list-group">
+          {% for comentario in computadora.comentarios.all %}
+            <li class="list-group-item">
+              <h5>{{ comentario.nombre }}</h5>
+              <p>{{ comentario.mensaje }}</p>
+              <p>Fecha de comentario: {{ comentario.fechaComentario }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se ha comentado sobre este producto.</p>
+      {% endif %}
+      <a href="{% url 'comentario' computadora.pk %}">Agregar un comentario</a>
+    </div>
+</section>
+
+{% endblock content %}

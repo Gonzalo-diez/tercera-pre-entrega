@@ -1,0 +1,51 @@
+{% extends 'proyecto/inicio.html' %}
+
+{% block content %} 
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h3>{{ celular.titulo }}</h3>
+              </div>
+              <div class="card-body">
+                {% if celular.imagenProducto %}
+                  <img src="{{ celular.imagenProducto.url }}" alt="Imagen del producto" class="img-fluid">
+                {% endif %}
+                <h5>Marca: {{ celular.marca }}</h5>
+                <h5>Modelo: {{ celular.modelo }}</h5>
+                <p>Descripción: {{ celular.descripcion }}</p>
+                <p>Año: {{ celular.year }}</p>
+                <p>Precio: ${{ celular.precio }}</p>
+                <p>Fecha de publicación: {{ celular.fechaPublicacion }}</p>
+                <p>Contacto: {{ celular.telefonoContacto }}, {{ celular.emailContacto }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-4">
+      <h4>Comentarios</h4>
+      {% if celular.comentarios.count > 0 %}
+        <ul class="list-group">
+          {% for comentario in celular.comentarios.all %}
+            <li class="list-group-item">
+              <h5>{{ comentario.nombre }}</h5>
+              <p>{{ comentario.mensaje }}</p>
+              <p>Fecha de comentario: {{ comentario.fechaComentario }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No se ha comentado sobre este producto.</p>
+      {% endif %}
+      <a href="{% url 'comentario' celular.pk %}">Agregar un comentario</a>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'proyecto/inicio.html' %}
+
+{% block content %}
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+          {% for computadora in computadoras %}
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <img src="{{ computadora.imagenProducto.url }}" class="card-img-top" alt="Imagen">
+              <div class="card-body">
+                <h5 class="card-title">{{ computadora.titulo }}</h5>
+                <p class="card-text">{{ computadora.contenido }}</p>
+                <p class="card-text">Marca: {{ computadora.marca }}</p>
+                <p class="card-text">Precio: ${{ computadora.precio }}</p>
+              </div>
+            </div>
+              <button><a href="{% url 'computadora' computadora.id %}">Ver más</a></button>
+          </div>
+          {% empty %}
+          <div class="col-12">
+            <p>No se ha encontrado ninguna publicación de este tipo.</p>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
