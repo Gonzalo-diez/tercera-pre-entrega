@@ -2,7 +2,7 @@ En este proyecto se puede subir publicaciones y buscar tales publicaciones depen
 
 La cuenta para realizar el login y admin:
 
-Nombre de usuario: usuario
+Nombre de usuario: Usuario
 Contraseña: Admin2001
 
 Los modelos que se usan en este proyecto son usuario, publicación y comentarios.
